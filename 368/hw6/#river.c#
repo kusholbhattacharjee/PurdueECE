@@ -1,0 +1,172 @@
+#include <stdio.h>
+#include <string.h>
+#include "river.h"
+#include <limits.h>
+
+int minFinder(int* N, int R, int C){
+	int i;
+	int min_index = 0;
+	int min_value = INT_MAX;
+	for (i=0; i<(R*C); i++){
+		if (turns[i] <= min_value && N[i]==0){
+			min_index = i;
+			min_value = turns[i];
+		}
+	}
+	return min_index;
+}
+
+int BIG_D(int R, int C){
+	int d = -1;
+	int i,pivot;
+	int right,left,up,down;
+	int topright,topleft,bottomright,bottomleft;
+	int moves = 0;
+
+	for (i=0; i<R; i++){
+		turns[C*i] = (nodes[C*i]==0)?1:0;
+	}
+	
+	int* river = malloc(R*C*sizeof(int));
+	memset(river,0,R*C*sizeof(int));
+
+	for (i=0;i<R*C;i++){
+		pivot = minFinder(river,R,C);
+		river[pivot]=1;
+
+		right = pivot+1;
+		left = pivot-1;
+		up = pivot-C;
+		down = pivot+C;
+		topright = pivot-C+1;
+		topleft = pivot-C-1;
+		bottomright = pivot+C+1;
+		bottomleft = pivot+C-1;
+
+		if (pivot % C != 0){
+			moves = (nodes[left]==0)? 2:1;
+			turns[left] = (turns[pivot]+moves < turns[left])? turns[pivot]+moves:turns[left];
+			if (topleft > 0){
+				moves = (nodes[topleft]==0)? 2:1;
+				turns[topleft] = (turns[pivot]+moves < turns[topleft]) ? turns[pivot]+moves:turns[topleft];
+			}
+			if (bottomleft<(R*C-1)){
+				moves = (nodes[bottomleft]==0)? 2:1;
+				turns[bottomleft] = (turns[pivot]+moves<turns[bottomleft])?turns[pivot]+moves:turns[bottomleft];
+			}
+		}	
+		if (pivot%C == C-1){
+			if (d==-1 || d>turns[pivot])
+				d = turns[pivot];
+		}
+		else{
+			moves = (nodes[right]==0)? 2:1;
+			if (turns[pivot]+moves < turns[right])
+				turns[right] = turns[pivot] + moves;
+			if(topright > 0){
+				moves = (nodes[topright]==0)?2:1;
+				if (turns[topright]+moves <  turns[topright])
+					turns[topright] = turns[pivot]+moves;
+			}
+			if (bottomright<(R*C-1)){
+				moves = (nodes[bottomright]==0)?2:1;
+				if (turns[bottomright] + moves < turns[bottomright])
+					turns[bottomright] = turns[pivot]+moves;
+			}
+		}
+		if (up > 0){
+			moves = (nodes[up]==1)?0:2;
+			if (turns[pivot] + moves < turns[up])
+				turns[up] = turns[pivot]+moves;
+		}
+		if (down < R*C-1){
+			moves = (nodes[down]==1)?0:2;
+			if (turns[pivot] + moves < turns[down])
+				turns[down] = turns[pivot]+moves;
+		}
+	}
+	free(river);
+	return d+1;
+}
+
+void readFile(char* file, int* R, int* C){
+	FILE* infile = fopen(file,"r");
+	
+	fscanf(infile,"%d %d\n",R,C);
+	
+	int rows = *R;
+	int columns = *C;
+
+	turns = malloc((*R)*(*C)*sizeof(int));
+	nodes = malloc((*R)*(*C)*sizeof(int));
+	int i,j,val;
+	for (i=0; i<rows; i++){
+		for (j=0; j<columns; j++){
+			turns[(columns*i) + j] = INT_MAX;
+			fscanf(infile,"%1d",&val);
+			nodes[(columns*i)+j] = val;
+		}
+		//fscanf(infile,'\n');
+	}
+	fclose(infile);
+	/*for (i=0; i<R; i++){
+		for (j=0; j<C; j++){
+			//set right 
+			if ( j == C-1 )
+				arr[i][j].right = 1;
+			else
+				arr[i][j].right = (arr[i][j+1].val == 1) ? 1 : 2; 
+
+			//set left
+			if (j==0)
+				arr[i][j].left = -1;
+			else
+				arr[i][j].left = (arr[i][j-1].val == 1) ? 1 : 2;
+
+			//set down
+			if (j==0)
+				arr[i][j].down = 0;
+			if (i == R-1)
+				arr[i][j].down = -1;
+			if (j!=0 && i!= (R-1))
+				arr[i][j].down = (arr[i+1][j].val == 1) ? 0 : 2;
+			
+			//set up
+			if (i == 0)
+				arr[i][j].up = -1;
+			else
+				arr[i][j].up = (arr[i-1][j].val == 1) ? 0 : 2;
+
+			//set Diagonals
+			if (i==0){ //if top row
+				arr[i][j].topleft = -1;
+				arr[i][j].topright = -1;
+			}
+			if (j==0){ //if left column
+				arr[i][j].topleft = -1;
+				arr[i][j].bottomleft = -1;
+			}
+			if (i==(R-1)){ //if bottom row
+				arr[i][j].bottomleft = -1;
+				arr[i][j].bottomright = -1;
+			}
+			if (j==(C-1)){ //if right column
+				arr[i][j].topright = -1;
+				arr[i][j].bottomright = -1;
+			}
+			if(i!=0 && j!=0)
+				arr[i][j].topleft = (arr[i-1][j-1].val==1) ? 1 : 2;
+			if(i!=0 && j!=(C-1))
+				arr[i][j].topright = (arr[i-1][j+1].val==1) ? 1 : 2;
+			if(i!=(R-1) && j!=0)
+				arr[i][j].bottomleft = (arr[i+1][j-1].val==1) ? 1 : 2;
+			if(i!=(R-1) && j!=(C-1))
+				arr[i][j].bottomright = (arr[i+1][j+1].val==1) ? 1 : 2;
+		}
+	}	
+	//printf("\n");
+}
+	*/
+	return
+	  }
+

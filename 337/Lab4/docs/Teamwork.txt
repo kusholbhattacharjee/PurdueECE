@@ -1,0 +1,4 @@
+1. 5 5 5 5
+2. My contribution was mostly coming up with the logic for the timer and 9 bit shift register. In addition, I also helped Ashay when he got stuck with the logic for the RCU block
+3. Ashay worked mainly on the rcu logic and rcv block logic, and after we each individually figured out how all the parts were supposed to work together, we came together and made a pseudo code of how we would go about coding it.
+4. We met three time times for about 2-3 hours each time. We only instant messaged when we were discussing when we were going to meet. Maybe a couple times here and there for quick questions.

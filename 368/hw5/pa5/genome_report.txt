@@ -1,0 +1,13 @@
+Kushol Bhattacharjee
+
+PA 5 Report
+
+
+Approach: 
+
+I used an adjacency matrix to represent the graph for the first genome. Then, for the rest of the genomes I went through the matrix and set the location to 0 whenever the nodes were no longer connected. In the end, I was able to use those 1 values to calculate the longest sequence and then use those longest sequences to find the order of the longest sequence with several travesals through the graph.
+
+
+Time Complexity: 
+
+Since my algorithm goes through each node with 2 for loops, The overall time complexity is O(m*n^2) to create the graph. Then, to calculate the maximum length and return the array it is O(n^2) since it's a recursive function that goes through the n by n adjacency matrix. 

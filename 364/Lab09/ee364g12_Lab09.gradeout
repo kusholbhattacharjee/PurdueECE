@@ -1,0 +1,42 @@
+/home/ecegridfs/a/ee364ta/grading/Lab09/ee364g12
+
+-----------------------------------------------------------------------------------
+FUNCTION                | DESCRIPTION        | COMMENTS                 | POINTS  
+-----------------------------------------------------------------------------------
+Account                   Account String 1     Passed                     2/2     
+Account                   Account String 2     Passed                     2/2     
+Account                   Attribute Check      Passed                     3/3     
+Account_performAction     Deposit Check        Passed                     2/2     
+Account_performAction     Withdraw Check 1     Passed                     2/2     
+Account_performAction     Withdraw Check 2     Passed                     2/2     
+Account_performAction     Withdraw Check 3     Passed                     2/2     
+Action                    Normal               Passed                     3/3     
+Action                    Wrong Amount         Passed                     2/2     
+Client                    Client String        Passed                     2/2     
+Client                    Normal               Passed                     3/3     
+Institute                 Action on Missing    Passed                     3/3     
+Institute                 Add Existing         Passed                     3/3     
+Institute                 Add New              Passed                     3/3     
+Institute                 Withdraw Check 1     Passed                     3/3     
+Institute                 Withdraw Check 2     Passed                     3/3     
+InstituteLoading          Amount Check 1       Error running function     0/3     
+InstituteLoading          Amount Check 2       Error running function     0/3     
+InstituteLoading          Count Check          Error running function     0/4     
+InstitutePower_Bonus                           Error running function     0/10    
+InstituteTotalByClient    Client Check 1       Error running function     0/5     
+InstituteTotalByClient    Client Check 2       Error running function     0/5     
+_noStringFunctionsUsed                         Passed                     0/0     
+getLinkPattern            Invalid 1            Passed                     2/2     
+getLinkPattern            Invalid 2            Passed                     2/2     
+getLinkPattern            Valid 1              Passed                     2/2     
+getLinkPattern            Valid 2              Passed                     2/2     
+getLinkPattern            Valid 3              Passed                     2/2     
+getNumberPattern          069                  Passed                     2/2     
+getNumberPattern          198                  Passed                     2/2     
+getNumberPattern          259                  Passed                     2/2     
+getNumberPattern          312                  Passed                     2/2     
+getNumberPattern          700                  Passed                     2/2     
+parseFile                                      Error running function     0/20    
+-----------------------------------------------------------------------------------
+
+Total Score = 60.0

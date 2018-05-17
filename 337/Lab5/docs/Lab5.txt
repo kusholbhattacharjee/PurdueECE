@@ -1,0 +1,23 @@
+1. Minimum amount of time data_ready must be asserted to ensure correct operation is 2 clock cycles, 18 ns since one clck cycle is 9 ns.
+
+Minimum amount of time data must be valid is 7 clock cycles because that is how long it takes to load the data. that is 63 ns.
+
+
+2. the filtered images are darker than the original, but each filtered image is very different in how bright the colored lines are. This makes sense I guess since we put in different coefficients and filtered each one differently so each filtered image looks very different from each other. 
+
+
+3. FILE OPERATIONS
+
+fopen('filename','r') opens a rile and reads it in binary
+fclose() closes the file
+fwrite() writes to the file
+fscanf() reads each character from the file however you specify
+ftell() tells the file what to write into the file (not sure about this one)
+fseek() moves around the cursor in the file
+
+4. FORMAT FOR FSCANF
+%b binary
+%c character
+%d int
+%f float
+%s string

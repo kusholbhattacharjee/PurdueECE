@@ -1,0 +1,16 @@
+Kushol Bhattacharjee
+
+Project 3 Report
+
+
+Time complexity of completing a binary tree from input file and creating tree:
+
+To complete the binary tree, I first went through the entire file and read the nodes line by line and created an array of Nodes. This made the node pointer end up at the end of the array. I then traversed backwards through the array and created the binary tree by assigning right and left for every H or V and then NULL right and left connections for every numered box. Since I traversed through the array 3 total times during this process, I would say the time complexity is O(n). 
+
+
+
+Time complexity of computing coordinates: 
+
+This is actually very simple, as my program went through each node in the binary tree once, as it used a mix of postorder and preorder traversals to recurse through and find the left most and bottom most Node. To connect numbered boxes together, I used the H and V nodes as dummy boxes to encompass the numbers it contained in its left and right trees. Therefore, since each node was only traversed through once in my algorithm, my time complexity was O(n).
+
+

@@ -1,0 +1,23 @@
+/home/ecegridfs/a/ee364ta/grading/Prelab06/ee364g12
+
+----------------------------------------------------------------------------
+FUNCTION                | DESCRIPTION | COMMENTS                 | POINTS  
+----------------------------------------------------------------------------
+getCompleteEntries                  FAILED                     0/10    
+getEmployeesWithIDs                 FAILED                     0/10    
+getEmployeesWithPhones              FAILED                     0/10    
+getEmployeesWithStates              Passed                     10/10   
+getEmployeesWithoutIDs              FAILED                     0/5     
+getQueryParameters                  Passed                     5/5     
+getRejectedEntries                  FAILED                     0/10    
+getSpecial                          FAILED                     0/5     
+getUrlParts                         Passed                     5/5     
+isSplitUsed                         Passed                     0/0     
+regEx_getRealMAC          Bad 1     FAILED                     0/2     
+regEx_getRealMAC          Bad 2     Passed                     2/2     
+regEx_getRealMAC          Good 1    Passed                     2/2     
+regEx_getRealMAC          Good 2    Passed                     2/2     
+regEx_getRealMAC          Good 3    Passed                     2/2     
+----------------------------------------------------------------------------
+
+Total Score = 28.0

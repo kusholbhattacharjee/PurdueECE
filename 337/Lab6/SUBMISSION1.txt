@@ -1,0 +1,111 @@
+Decode Results:
+Source Results:
+Total Score: 0.88/2.00
+Score breakdown by test case:
+ Results for basic test cases:
+  Test case 0: 0.500/0.500
+  Test case 1: 0.250/0.250
+  Test case 2: 0.000/0.250
+   submitted design was clearly not a Moore machine during Start of data bit 1 of 2 bit sequence phase of Bit Sequence 2
+  Test case 3: 0.000/0.250
+   submitted design was clearly not a Moore machine during Start of data bit 1 of 2 bit sequence phase of Bit Sequence 3
+  Test case 4: 0.125/0.250
+   d_orig was correct during first bit arrival phase of Bit Sequence 4
+   d_orig was stable during first bit wait phase of Bit Sequence 4
+   d_orig was correct during first bit storing phase of Bit Sequence 4
+   submitted design was clearly not a Moore machine during Data bit 2 of 2 bit sequence phase of Bit Sequence 4
+  Test case 5: 0.000/0.250
+   submitted design was clearly not a Moore machine during zero bit store phase of EOP w/o Shift_Enable Case
+  Test case 6: 0.000/0.250
+   submitted design was clearly not a Moore machine during zero bit store phase of EOP w/ Shift_Enable Case
+
+Mapped Results:
+Total Score: 0.88/2.00
+Score breakdown by test case:
+ Results for basic test cases:
+  Test case 0: 0.500/0.500
+  Test case 1: 0.250/0.250
+  Test case 2: 0.000/0.250
+   submitted design was clearly not a Moore machine during Start of data bit 1 of 2 bit sequence phase of Bit Sequence 2
+  Test case 3: 0.000/0.250
+   submitted design was clearly not a Moore machine during Start of data bit 1 of 2 bit sequence phase of Bit Sequence 3
+  Test case 4: 0.125/0.250
+   d_orig was correct during first bit arrival phase of Bit Sequence 4
+   d_orig was stable during first bit wait phase of Bit Sequence 4
+   d_orig was correct during first bit storing phase of Bit Sequence 4
+   submitted design was clearly not a Moore machine during Data bit 2 of 2 bit sequence phase of Bit Sequence 4
+  Test case 5: 0.000/0.250
+   submitted design was clearly not a Moore machine during zero bit store phase of EOP w/o Shift_Enable Case
+  Test case 6: 0.000/0.250
+   submitted design was clearly not a Moore machine during zero bit store phase of EOP w/ Shift_Enable Case
+
+
+Eop_Detect Results:
+Source Results:
+Total Score: 1.00/1.00
+Score breakdown by test case:
+ Results for basic test cases:
+  Test case 0: 0.250/0.250
+  Test case 1: 0.250/0.250
+  Test case 2: 0.250/0.250
+  Test case 3: 0.250/0.250
+
+Mapped Results:
+Total Score: 1.00/1.00
+Score breakdown by test case:
+ Results for basic test cases:
+  Test case 0: 0.250/0.250
+  Test case 1: 0.250/0.250
+  Test case 2: 0.250/0.250
+  Test case 3: 0.250/0.250
+
+
+Edge_Detect Results:
+Due to serious synthesis problems your the score for this submission is
+automatically zero (0) points
+ Your design has the following synthesis errors, designs must be error free
+  Error:  ./source/edge_detect.sv:17: The statements in this 'always' block are outside the scope of the synthesis policy. Only an 'if' statement is allowed at the top level in this always block. (ELAB-302)
+  dc_shell> dc_shell> Error: Current design is not defined. (UID-4)
+  dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> Error: Current design is not defined. (UID-4)
+  Error: Can't find object 'clk'. (UID-109)
+  Error: Value for list 'source_objects' must have 1 elements. (CMD-036)
+  dc_shell> dc_shell> dc_shell> Error: Current design is not defined. (UID-4)
+  dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> dc_shell> Error: No files or designs were specified. (UID-22)
+  dc_shell> Error: Current design is not defined. (UID-4)
+
+Rx_Fifo Results:
+Source Results:
+Total Score: 1.00/1.00
+Score breakdown by test case:
+ Results for basic test cases:
+  Test case 0: 0.250/0.250
+  Test case 1: 0.250/0.250
+  Test case 2: 0.250/0.250
+  Test case 3: 0.250/0.250
+
+Mapped Results:
+Total Score: 1.00/1.00
+Score breakdown by test case:
+ Results for basic test cases:
+  Test case 0: 0.250/0.250
+  Test case 1: 0.250/0.250
+  Test case 2: 0.250/0.250
+  Test case 3: 0.250/0.250
+
+
+Tb_Decode Results:
+Source Results:
+Total Score: 2.00/2.00
+Mapped Results:
+Total Score: 2.00/2.00
+
+Tb_Eop_Detect Results:
+Source Results:
+Total Score: 0.77/1.00
+Mapped Results:
+Total Score: 0.67/1.00
+
+Tb_Rx_Fifo Results:
+Source Results:
+Error: Not stated by test bench  All missed/failed test cases will now be reported below:
+

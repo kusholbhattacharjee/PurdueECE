@@ -1,0 +1,61 @@
+#! /user/local/bin/python3.4
+
+def find(pattern):
+    #find patterns of shit with the X meaning anything
+    final = []
+    match = 1
+    with open ("sequence.txt",'r') as myFile:
+        line = myFile.read()
+    for i in range(0,len(line)-len(pattern)):
+        match = 1
+        patch = line[i:i+len(pattern)]
+        for j in range(0,len(pattern)):
+            if (pattern[j] != patch[j] and pattern[j] != 'X'):
+                match = 0
+        if match == 1:
+            final.append(patch)
+    return final
+
+def getStreakProduct(sequence, maxSize, product):
+    final = []
+    curr = ""
+    for i in range(0,len(sequence)):
+        curr = sequence[i]
+        num = int(sequence[i])
+        j = i+1
+        while(num < product and len(curr) < maxSize and j < len(sequence)):
+            num *= int(sequence[j])
+            curr += sequence[j]
+            j+=1
+            if num == product:
+                final.append(curr)
+    return final
+
+def writePyramids(filePath, baseSize, count, char):
+    for i in range(0,count):
+        for j in range(0,baseSize):
+            
+
+def getStreaks(sequence, letters):
+    pass
+
+def findNames(nameList, part, name):
+    pass
+
+def convertToBoolean(num, size):
+    pass
+
+
+def convertToInteger(booList):
+    pass
+
+
+if __name__ == "__main__":
+    #s = find("1XX7")
+    #print(s)
+    o = getStreakProduct("54789654321687984", 10, 288)
+    print(o)
+
+
+
+

@@ -1,0 +1,4 @@
+MacroModel pin I0/LD/CTRL/curr_state_reg[2]/CLK  296.50ps 296.50ps 296.50ps 296.50ps 0pf osu05
+MacroModel pin I0/LD/CTRL/curr_state_reg[0]/CLK  296.90ps 296.90ps 296.90ps 296.90ps 0pf osu05
+MacroModel pin I0/LD/CTRL/curr_state_reg[3]/CLK  300.00ps 300.00ps 300.00ps 300.00ps 0pf osu05
+MacroModel pin I0/LD/CTRL/curr_state_reg[1]/CLK  296.50ps 296.50ps 296.50ps 296.50ps 0pf osu05

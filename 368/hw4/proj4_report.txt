@@ -1,0 +1,17 @@
+
+Kushol Bhattacharjee
+
+Project 3 Report
+
+
+
+Time Complexity:
+
+In PA 4, my time complexity did not change at all since I used my same tree from PA3 and simply rerooted it around until I found the best area possible. As written in the document, there are 2n-3 representations of the binary tree (where n is the number of leaf nodes). Since that is still O(n), my time complexity for PA4 is still O(n). 
+
+
+
+Space Complexity: 
+
+Space Complexity was O(n) since I used an array of nodes to create my binary tree. Since all my nodes were in a list, the space complexity is O(n) even though the binary tree was also created.
+

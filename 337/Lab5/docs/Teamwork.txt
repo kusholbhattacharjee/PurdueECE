@@ -1,0 +1,4 @@
+1. 5 5 5 5
+2. My contribution was mostly working on the filter design and determining how all the different files would connect together
+3. Ashay worked on mostly the logic for the controller block, he understood how the state diagrams worked.
+4. We met 4 time times for about 2-3 hours each time. We only instant messaged when we were discussing when we were going to meet. Maybe a couple times here and there for quick questions.

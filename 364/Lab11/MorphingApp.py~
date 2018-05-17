@@ -1,0 +1,121 @@
+# Import PySide classes
+import sys
+from PySide.QtCore import *
+from PySide.QtGui import *
+
+from Morphing import *
+from MorphingGUI import *
+
+from os.path import isfile
+import numpy as np
+import imageio
+
+class MorphingApp(QMainWindow, Ui_MainWindow):
+
+    def __init__(self, parent=None):
+        super(MorphingApp, self).__init__(parent)
+        self.setupUi(self)
+
+        #VARIABLES
+        self.imgLoaded1 = False
+        self.imgLoaded2 = False
+        self.alpha = 0.0
+        self.img1 = None
+        self.img1_points = None
+        self.img2 = None
+        self.img2_points = None
+
+
+        #INITIAL STATE
+        self.imgBtn1.setEnabled(True)
+        self.imgBtn2.setEnabled(True)
+        #self.alphaValue.setText('0.0')
+        self.alphaValue.setReadOnly(True)
+        self.disableWidgets()
+        
+        #BUTTON UPDATES
+        self.imgBtn1.clicked.connect(self.loadImg1)
+        self.imgBtn2.clicked.connect(self.loadImg2)
+        self.alpha_slider.valueChanged.connect(self.update)
+        self.blendBtn.clicked.connect(self.blendImages)
+
+
+    def loadImg1(self, filename = None):
+        if filename is None:
+            imgPath,lol = QFileDialog.getOpenFileName(self)
+        #print(type(imgPath))
+        img = QPixmap(imgPath)
+        img = img.scaled(self.imgView1.width(),self.imgView1.height()-2,Qt.KeepAspectRatio)
+        scene = QGraphicsScene()
+        scene.addPixmap(img)
+        self.imgView1.setScene(scene)
+        self.imgView1.show()
+        self.imgLoaded1 = True
+        self.img1 = np.array(imageio.imread(imgPath))
+        s = imgPath + '.txt'
+        if isfile(s):
+            self.img1_points = np.loadtxt(s)
+        self.update()
+
+    def loadImg2(self, filename = None):
+        if filename is None:
+            imgPath,lol = QFileDialog.getOpenFileName(self)
+        #print(type(imgPath))
+        img = QPixmap(imgPath)
+        img = img.scaled(self.imgView2.width(),self.imgView2.height()-2,Qt.KeepAspectRatio)
+        scene = QGraphicsScene()
+        scene.addPixmap(img)
+        self.imgView2.setScene(scene)
+        self.imgView2.show()
+        self.imgLoaded2 = True
+        self.img2 = np.array(imageio.imread(imgPath))
+        s = imgPath + '.txt'
+        if isfile(s):
+            self.img2_points = np.loadtxt(s)
+        self.update()
+
+    def update(self):
+        #Enable & disable widgets
+        if self.imgLoaded1 and self.imgLoaded2:
+            self.enableWidgets()
+        else:
+            self.disableWidgets()
+
+        #alpha value
+        self.alpha = self.alpha_slider.value() / 10
+        self.alphaValue.setText('{:.2f}'.format(self.alpha))
+
+    def blendImages(self):
+        B = Blender(self.img1,self.img1_points,self.img2,self.img2_points)
+        blendNP = B.getBlendedImage(self.alpha)
+        saveImage(blendNP,'testApp.jpg')
+        ###
+        img = QPixmap('testApp.jpg')
+        img = img.scaled(self.imgView2.width(),self.imgView2.height()-2,Qt.KeepAspectRatio)
+        scene = QGraphicsScene()
+        scene.addPixmap(img)
+        self.blendView.setScene(scene)
+        self.blendView.show()
+        
+        
+
+        
+
+    def disableWidgets(self):
+        self.checkBox.setDisabled(True)
+        self.alpha_slider.setDisabled(True)
+        self.alphaValue.setDisabled(True)
+        self.blendBtn.setDisabled(True)
+
+    def enableWidgets(self):
+        self.checkBox.setEnabled(True)
+        self.alpha_slider.setEnabled(True)
+        self.alphaValue.setEnabled(True)
+        self.blendBtn.setEnabled(True)
+
+if __name__ == "__main__":
+    currentApp = QApplication(sys.argv)
+    currentForm = MorphingApp()
+    
+    currentForm.show()
+    currentApp.exec_()
