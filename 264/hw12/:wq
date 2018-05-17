@@ -1,0 +1,129 @@
+#include "sorts.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+struct List create_list(const int* array,int size);
+struct BST create_bst(const int* array, int size);
+void _addNode(struct BSTNode** node,int value_);
+void tree_sort_array(int* array,size_t size);
+void _order(struct BSTNode* root,int* array,int i);
+void _empty_tree(struct BSTNode* root);
+void empty_bst(struct BST* bst);
+void quick_sort_array(int* array, size_t size);
+
+
+int cmpfunc(const void* a, const void* b){
+	return (*(int*)a - *(int*)b);
+}
+
+void quick_sort_array(int* array,size_t size){
+	qsort(array,size,sizeof(int),cmpfunc);
+	return;
+}
+
+void _empty_tree(struct BSTNode* root){
+	if(root==NULL)
+		return;
+	_empty_tree(root->left);
+	_empty_tree(root->right);
+	free(root);
+	return;
+}
+
+void empty_tree(struct BST* bst){
+	_empty_tree(bst->root);
+	return;
+}
+
+void empty_list(struct List* list){
+	struct ListNode* p = list->head;
+	struct ListNode* q;
+	while(p!=NULL){
+		q = p;
+		p = p->next;
+		free(q);
+	}
+	list->head = NULL;
+	list->tail = NULL;
+	free(list);
+}
+
+void _order(struct BSTNode* root,int* array,int i){
+	if (root!=NULL){
+		_order(root->left,array,i);
+		array[i] = root->value;
+		i++;
+		_order(root->right,array,i);
+	}
+	return;
+}
+void tree_sort_array(int* array,size_t size){
+	
+	struct BST orderup = create_bst(array,size);
+	int i = 0;
+	_order(orderup.root,array,i);
+	return;
+}
+
+struct List create_list(const int* array,int size){
+	
+	struct	List list;
+	list.head = NULL;
+	list.tail = NULL;
+	list.size = size;
+
+	if(size==0){
+		return list;
+	}
+	
+	for(int i = 0; i<size; i++){
+		struct ListNode* insert = malloc(sizeof(*insert));
+		insert->value = array[i];
+		insert->next = NULL;
+		if(size==1){
+			list.head = insert;
+			list.tail = list.head;
+		}
+		else{
+			list.tail->next = insert;
+			list.tail = insert;
+		}
+	}
+
+	return list;
+}
+
+void _addNode(struct BSTNode** node, int value){
+	if(*node == NULL){
+		*node = malloc(sizeof(struct BSTNode));
+		(*node)->left = NULL;
+		(*node)->right = NULL;
+		(*node)->value = value;
+	}
+	else if(value > (*node)->value){
+		_addNode((&(*node)->right),value);
+	}
+	
+	else{
+		_addNode((&(*node)->left),value);
+	}
+	return;
+}
+
+struct BST create_bst(const int* array, int size){
+	struct BST bst;
+	bst.root = NULL;
+	bst.size = size;
+
+	if(size==0){
+		return bst;
+	}
+	
+	for(int i = 0; i<size; i++){
+		_addNode(&(bst.root), array[i]);
+	}
+	
+	return bst;
+}
+
+	

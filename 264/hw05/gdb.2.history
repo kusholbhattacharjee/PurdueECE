@@ -1,0 +1,28 @@
+set logging file gdb.2.log
+set logging on
+set history filename gdb.2.history
+set history save
+b main
+run
+frame
+list
+until 8
+s
+s
+s
+s
+s
+s
+s
+s
+s
+s
+print start
+x/8bx start
+x/1a start
+print *start
+print *start[0]
+print *start[1]
+print (*start)[1]
+print *(start[1])
+q

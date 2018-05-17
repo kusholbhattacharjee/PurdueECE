@@ -1,0 +1,68 @@
+NBA
+- leader:  (none)
+- members: (none)
+NBA
+- leader:  (none)
+- members: (none)
+
+NBA
+- leader:  (none)
+- members: Kevin Durant (favorite: (none))
+
+NBA
+-leader:  (none)
+- members: Stephen Curry  (favorite: Lebron James)
+           Lebron James   (favorite: Stephen Curry)
+           Draymond Green (favorite: Stephen Curry)
+           Paul George    (favorite: Stephen Curry)
+
+Favorites of member 1:
+- Lebron James
+
+Name of added person: Dwayne Wade
+Favorites of added person:
+- Stephen Curry
+- Paul George
+
+New list of favorites for member 2:
+- Dwight Howard
+- Stephen Curry
+- James Harden
+
+New list of favorites for member 2:
+- Dwight Howard
+- Dwayne Wade
+- Stephen Curry
+- James Harden
+
+New list of favorites for member 2:
+- Dwight Howard
+- Dwayne Wade
+- Dwight Howard
+- Stephen Curry
+- James Harden
+
+New list of favorites for member 1:
+- Lebron James
+- Dwight Howard
+
+New list of favorites for member 1:
+- Lebron James
+- Dwight Howard
+- Dwayne Wade
+
+Copy of team 3:
+NBA
+-leader:  (none)
+- members: Stephen Curry  (favorite: Lebron James)
+           Lebron James   (favorite: Stephen Curry)
+           Draymond Green (favorite: Stephen Curry)
+           Paul George    (favorite: Stephen Curry)
+           James Harden   (favorite: Stephen Curry)
+           Dwayne Wade    (favorite: Dwight Howard)
+           Dwight Howard  (favorite: Stephen Curry)
+
+Favorites of first person on copy of team:
+- Lebron James
+- Dwight Howard
+- Dwayne Wade

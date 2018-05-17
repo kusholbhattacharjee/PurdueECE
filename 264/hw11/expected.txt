@@ -1,0 +1,32 @@
+index.root -> word: Lebron
+index.root -> filenames -> filename: one
+Durant
+Files containing word:
+one
+two
+Lebron
+Files containing word:
+one
+two
+three
+Steph
+Files containing word:
+one
+
+Files gotten from get function:
+-one
+-two
+-three
+
+Durant
+Files containing word:
+one
+two
+Lebron
+Files containing word:
+one
+two
+three
+Steph
+Files containing word:
+one

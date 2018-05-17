@@ -1,0 +1,73 @@
+Starting program: /home/shay/a/kbhattac/264/hw05/calc 
+
+Program received signal SIGINT, Interrupt.
+0x0000000000400664 in _parse_integer (s=0x400a38 "1") at calc.c:41
+41			value += start[i] - (start[i] <= '9' ? '0' : 'a' - 10);
+#0  0x0000000000400664 in _parse_integer (s=0x400a38 "1") at calc.c:41
+#1  0x0000000000400587 in calculate (lhs_str=0x400a38 "1", operator=43 '+', 
+    rhs_str=0x400a38 "1") at calc.c:10
+#2  0x000000000040079c in main (argc=1, argv=0x7fffffffe3d8) at test_calc.c:5
+36	
+37		int value = 0;   // This will be the return value from this function
+38		int i = 0;
+39		while(start[i] != '\0') {
+40			value *= base;
+41			value += start[i] - (start[i] <= '9' ? '0' : 'a' - 10);
+42		}
+43	
+44		return value * sign;
+45	}
+The history is empty.
+start = 0x400a38 "1"
+sign = 1
+base = 10
+value = -954437178
+i = 0
+$1 = 0x400a38 "1"
+All defined variables:
+
+Non-debugging symbols:
+0x00000000004009d8  _IO_stdin_used
+0x0000000000400adc  __GNU_EH_FRAME_HDR
+0x0000000000400c48  __FRAME_END__
+0x0000000000600e40  __CTOR_LIST__
+0x0000000000600e40  __init_array_end
+0x0000000000600e40  __init_array_start
+0x0000000000600e48  __CTOR_END__
+0x0000000000600e50  __DTOR_LIST__
+0x0000000000600e58  __DTOR_END__
+0x0000000000600e60  __JCR_END__
+0x0000000000600e60  __JCR_LIST__
+0x0000000000600e68  _DYNAMIC
+0x0000000000601000  _GLOBAL_OFFSET_TABLE_
+0x0000000000601028  __data_start
+0x0000000000601028  data_start
+0x0000000000601030  __dso_handle
+0x0000000000601038  __TMC_END__
+0x0000000000601038  __bss_start
+0x0000000000601038  _edata
+0x0000000000601038  completed
+Quit
+s = 0x400a38 "1"
+39		while(start[i] != '\0') {
+40			value *= base;
+41			value += start[i] - (start[i] <= '9' ? '0' : 'a' - 10);
+39		while(start[i] != '\0') {
+40			value *= base;
+41			value += start[i] - (start[i] <= '9' ? '0' : 'a' - 10);
+$2 = 49 '1'
+1: start[i] = 49 '1'
+39		while(start[i] != '\0') {
+1: start[i] = 49 '1'
+40			value *= base;
+1: start[i] = 49 '1'
+41			value += start[i] - (start[i] <= '9' ? '0' : 'a' - 10);
+1: start[i] = 49 '1'
+39		while(start[i] != '\0') {
+1: start[i] = 49 '1'
+40			value *= base;
+1: start[i] = 49 '1'
+41			value += start[i] - (start[i] <= '9' ? '0' : 'a' - 10);
+1: start[i] = 49 '1'
+39		while(start[i] != '\0') {
+1: start[i] = 49 '1'

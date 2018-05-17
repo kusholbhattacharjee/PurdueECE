@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include "mintf.h"
+
+
+
+void mintf(const char *format , ...){
+	char *i;
+
+	va_list args;
+	va_start(args,format);
+	
+	for (i = format; *i != '\0'; i++){
+		if (*i == '%'){
+			i++;
+			int x = 0;
+			char *s = "";
+			char ch = 'o';
+
+			if (*i == 'd'){
+				x = va_arg(args,int);
+				print_integer(x,10,"");
+			}
+			else if (*i == 'x'){
+				x = va_arg(args,int);
+				print_integer(x,16,"0x");
+			}
+			else if (*i == 'b'){
+				x = va_arg(args,int);
+				print_integer(x,2,"0b");
+			}
+			else if (*i == '$'){
+				double money = va_arg(args,double);
+				if (money < 0){
+					fputc('-',stdout);
+					fputc('$',stdout);
+					money = -money;
+				}
+				else{
+					fputc('$',stdout);
+				}
+				int dollars = (int)money;
+				double cents = money-dollars;
+				cents = cents*100;
+				cents = (int)cents;
+				print_integer(money,10,"");
+				putchar('.');
+				print_integer(cents,10,"");
+			}
+			else if (*i == 's'){
+				s = va_arg(args,char *);
+				puts(s);
+				fputs(s,stdout);
+			}
+			else if (*i == 'c'){
+			 	x = va_arg(args,int);
+				fputc(x,stdout);
+			}
+			else if (*i == '%'){
+			 	ch = '%';
+				putchar(ch);
+			}
+			else{
+				ch = '%';
+				putchar(ch);
+			}
+		}
+		else{
+			putchar(*i);
+		}
+
+	}
+	va_end(args);
+
+
+	return;
+}
+
+
+
+

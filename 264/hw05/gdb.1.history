@@ -1,0 +1,29 @@
+set logging file gdb.1.log
+set logging on
+set history filename gdb.1.history
+set history save
+run
+bt
+list
+print
+info locals
+print s
+info variables
+info args
+n
+n
+n
+n
+n
+n
+print start[i]
+display start[i]
+n
+n
+n
+n
+n
+n
+n
+undisplay 1
+quit

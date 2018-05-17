@@ -1,0 +1,3 @@
+
+Header of train image valid == 1
+Value of bits_per_pixel == 24
